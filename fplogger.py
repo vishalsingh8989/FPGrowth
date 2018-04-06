@@ -8,6 +8,7 @@ __status__ = "In Progress"
 """
 
 
+
 class FPLogger(object):
     
     """ Singleton logger class 
