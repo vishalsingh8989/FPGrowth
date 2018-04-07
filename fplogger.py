@@ -7,22 +7,79 @@ __email__ = "jasrotia.vishal@stonybrook.edu
 __status__ = "In Progress"
 """
 
+import os
+import sys
+import time
+import logging
 
+from config import Config
+from singleton import Singleton
 
+@Singleton
 class FPLogger(object):
     
-    """ Singleton logger class 
+    """ Singleton logger class for all logging.
     """
-    _instance = None
-    
-    def __new__(cls, *args, **kwargs):
-        if not cls._instance:
-            cls._instance = super(FPLogger, cls).__init__(cls, *args, **kwargs)
-        
-        return cls._instance
-            
             
     def __init__(self):
-        print("called")
+        """
+        """
+
+        self._logger = logging.getLogger(name="FPGrowth")
+        self._config = Config()
+        
+        #print output on terminal-> stdout
+        self._streamHandler = logging.StreamHandler(sys.stdout)
+        
+        #create file handler for saving logs
+        self._output_folder = os.path.join(self._config.root ,"output" , "FPGrowth_" + "_".join(time.ctime().split()[1:]))        
+        try:
+            os.mkdir(self._output_folder)
+        except OSError as err:
+            print("Error in creating output folder for logs and results. {0}".format(err))
+            exit()
+        self._log_file_path = os.path.join(self._output_folder , "FPGrowth.log")
+        self._fileHandler = logging.FileHandler(self._log_file_path)
+        
+        
+        # add _fileHandler and _streamHandler(stdout) to logger obj.
+        self._logger.addHandler(self._fileHandler)
+        self._logger.addHandler(self._streamHandler)
+        
+        #log _formatter
+        self._formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+        
+        # set _formatter  on both streams
+        self._fileHandler.setFormatter(self._formatter)
+        self._streamHandler.setFormatter(self._formatter)
+        
+        #debug level
+        self._logger.setLevel(logging.DEBUG)
+#         self._logger.info("Logging info")
+#         self._logger.debug("Logging debug")
+#         self._logger.error("Logging error")
+    
+    
+    def info(self, msg):
+        """
+        """
+        self._logger.info(msg)
+    
+    def debug(self, msg):
+        """
+        """
+        self._logger.debug(msg)
+        
+    def error(self, msg):
+        """
+        """
+        self._logger.error(msg)
+        
+        
+        
+        
+
+        
+        
         
         
