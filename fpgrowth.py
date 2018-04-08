@@ -15,61 +15,24 @@ import logging
 import pandas as pd
 
 from fplogger import FPLogger
+from config import Config
 
-
-def set_up_environment():
-    if "output" not in os.listdir(os.getcwd()):
-        print("Create output folder...")
-        output_path = os.path.join(os.getcwd(), "output")
-        try:
-            os.mkdir(output_path)
-        except OSError as err:
-            print("Error in creating output folder : {0} : {1}".format(output_path, err))
-        if "output" not in os.listdir(os.getcwd()):
-            print("Error in creating output folder : ", output_path)
-            exit()
-        else:
-            print("Output folder created : {0}".format(output_path))
-        
-        print("Add {0} to env.".format(os.getcwd()))
-    print("Environment set up succussful")
-        
-        
-            
+class FPGrowth:
+    """ FP Growth algorithm : https://dl.acm.org/citation.cfm?doid=335191.335372
+    """
     
-
-
-
-
-
-
-
-
-
-
-if __name__ == "__main__":
+    def __init__(self, input_file):
+        self.log = FPLogger()
+        self._config = Config()
+        self._input_file = input_file
+        self._df = pd.read_csv(os.path.join(self._config.root , "input", input_file))    
+        self.log.debug(self._df)
+        
+        self.log.debug("shape :  {0}".format(self._df.shape))
     
-    set_up_environment()
-    log = FPLogger()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    def find_frequent_itemset(self):
+        pass
+        
 
 
 
