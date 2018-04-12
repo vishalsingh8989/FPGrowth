@@ -1,0 +1,103 @@
+2018-04-12 14:50:31,703 - FPGrowth - DEBUG - __init__(self = <fpgrowth.FPGrowth instance at 0x10652d638>  input_file = Dress_AttributeDataSet.csv ,  min_sup = 2
+2018-04-12 14:50:31,707 - FPGrowth - DEBUG - shape :  (5, 15)
+2018-04-12 14:50:31,707 - FPGrowth - DEBUG - frequent_itemset(self = <fpgrowth.FPGrowth instance at 0x10652d638> )
+2018-04-12 14:50:31,708 - FPGrowth - INFO - Generate items freq table.
+2018-04-12 14:50:31,716 - FPGrowth - INFO - Items with frequency more than min_sup : 2.
+2018-04-12 14:50:31,717 - FPGrowth - INFO - {'summer': 3, 'natural': 4, 'chiffon': 3, 'o-neck': 5, 'l': 3, 'low': 3}
+2018-04-12 14:50:31,717 - FPGrowth - INFO - Ordered item set : 
+2018-04-12 14:50:31,717 - FPGrowth - INFO - [('summer', 3), ('chiffon', 3), ('l', 3), ('low', 3), ('natural', 4), ('o-neck', 5)]
+2018-04-12 14:50:31,717 - FPGrowth - INFO - Items :
+2018-04-12 14:50:31,717 - FPGrowth - DEBUG - ['o-neck', 'natural', 'low', 'l', 'chiffon', 'summer']
+2018-04-12 14:50:31,717 - FPGrowth - DEBUG - ['o-neck', 'natural', 'low', 'l', 'chiffon', 'summer']
+2018-04-12 14:50:31,717 - FPGrowth - DEBUG - ***********************
+2018-04-12 14:50:31,717 - FPGrowth - DEBUG - (0, Unnamed: 0                 0
+Dress_ID          1006032852
+Style                   sexy
+Price                    low
+Rating                   4.6
+Size                       m
+Season                summer
+NeckLine              o-neck
+SleeveLength       sleevless
+waiseline             empire
+Material                null
+FabricType           chiffon
+Decoration           ruffles
+Pattern Type          animal
+Recommendation             1
+Name: 0, dtype: object)
+2018-04-12 14:50:31,725 - FPGrowth - DEBUG - ['summer', 'low', 'chiffon', 'o-neck']
+2018-04-12 14:50:31,725 - FPGrowth - DEBUG - ***********************
+2018-04-12 14:50:31,725 - FPGrowth - DEBUG - (1, Unnamed: 0                 1
+Dress_ID          1212192089
+Style                 casual
+Price                    low
+Rating                     0
+Size                       l
+Season                summer
+NeckLine              o-neck
+SleeveLength           petal
+waiseline            natural
+Material          microfiber
+FabricType              null
+Decoration           ruffles
+Pattern Type          animal
+Recommendation             0
+Name: 1, dtype: object)
+2018-04-12 14:50:31,727 - FPGrowth - DEBUG - ['low', 'summer', 'natural', 'l', 'o-neck']
+2018-04-12 14:50:31,727 - FPGrowth - DEBUG - ***********************
+2018-04-12 14:50:31,727 - FPGrowth - DEBUG - (2, Unnamed: 0                 2
+Dress_ID          1190380701
+Style                vintage
+Price                   high
+Rating                     0
+Size                       l
+Season                automn
+NeckLine              o-neck
+SleeveLength            full
+waiseline            natural
+Material            polyster
+FabricType              null
+Decoration              null
+Pattern Type           print
+Recommendation             0
+Name: 2, dtype: object)
+2018-04-12 14:50:31,730 - FPGrowth - DEBUG - ['natural', 'l', 'o-neck']
+2018-04-12 14:50:31,730 - FPGrowth - DEBUG - ***********************
+2018-04-12 14:50:31,730 - FPGrowth - DEBUG - (3, Unnamed: 0                 3
+Dress_ID           966005983
+Style                  brief
+Price                average
+Rating                   4.6
+Size                       l
+Season                spring
+NeckLine              o-neck
+SleeveLength            full
+waiseline            natural
+Material                silk
+FabricType           chiffon
+Decoration        embroidary
+Pattern Type           print
+Recommendation             1
+Name: 3, dtype: object)
+2018-04-12 14:50:31,732 - FPGrowth - DEBUG - ['natural', 'l', 'chiffon', 'o-neck']
+2018-04-12 14:50:31,732 - FPGrowth - DEBUG - ***********************
+2018-04-12 14:50:31,732 - FPGrowth - DEBUG - (4, Unnamed: 0                    4
+Dress_ID              876339541
+Style                      cute
+Price                       low
+Rating                      4.5
+Size                          m
+Season                   summer
+NeckLine                 o-neck
+SleeveLength          butterfly
+waiseline               natural
+Material          chiffonfabric
+FabricType              chiffon
+Decoration                  bow
+Pattern Type                dot
+Recommendation                0
+Name: 4, dtype: object)
+2018-04-12 14:50:31,734 - FPGrowth - DEBUG - ['summer', 'natural', 'low', 'chiffon', 'o-neck']
+2018-04-12 14:50:31,734 - FPGrowth - DEBUG - ***********************
+2018-04-12 14:50:31,734 - FPGrowth - DEBUG - {0: ['summer', 'low', 'chiffon', 'o-neck'], 1: ['low', 'summer', 'natural', 'l', 'o-neck'], 2: ['natural', 'l', 'o-neck'], 3: ['natural', 'l', 'chiffon', 'o-neck'], 4: ['summer', 'natural', 'low', 'chiffon', 'o-neck']}

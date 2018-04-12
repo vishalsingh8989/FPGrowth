@@ -58,7 +58,7 @@ if __name__ == "__main__":
         print("{0} :  {1}".format(i, file_name))
     print("******************************")
     print("Enter your choice : ")
-    file_num = int(input()) - 1
+    file_num = 0#int(input()) - 1
     
     if file_num >=0  and file_num < len(input_files):
         print("Input file : {0}".format(input_files[file_num]))
@@ -67,10 +67,9 @@ if __name__ == "__main__":
         exit()
     
     
-    min_sup = 50
+    min_sup = 4
     fpg = FPGrowth(input_files[file_num], min_sup)
-    fpg.find_frequent_itemset()
-    
+    fpg.frequent_itemset()
     
     
     print("Done..")

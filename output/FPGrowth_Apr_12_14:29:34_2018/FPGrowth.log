@@ -1,0 +1,5 @@
+2018-04-12 14:29:34,108 - FPGrowth - DEBUG - __init__(self = <fpgrowth.FPGrowth instance at 0x10c7653f8>  input_file = Dress_AttributeDataSet.csv ,  min_sup = 4
+2018-04-12 14:29:34,114 - FPGrowth - DEBUG - shape :  (20, 15)
+2018-04-12 14:29:34,114 - FPGrowth - DEBUG - frequent_itemset(self = <fpgrowth.FPGrowth instance at 0x10c7653f8> )
+2018-04-12 14:29:34,114 - FPGrowth - INFO - Generate items freq table.
+2018-04-12 14:29:34,126 - FPGrowth - INFO - {1: 9, 'summer': 9, 'short': 6, 'natural': 9, 'chiffon': 5, 'o-neck': 13, 'solid': 5, 'average': 10, 'm': 8, 'free': 7, 'full': 6, 'low': 8, 'empire': 5, 'cotton': 6}

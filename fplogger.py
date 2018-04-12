@@ -62,17 +62,17 @@ class FPLogger(object):
     
     
     def info(self, msg):
-        """
+        """ logger function for info msg
         """
         self._logger.info(msg)
     
     def debug(self, msg):
-        """
+        """logger function for debug msg
         """
         self._logger.debug(msg)
         
     def error(self, msg):
-        """
+        """logger function for error msg
         """
         self._logger.error(msg)
         

@@ -1,0 +1,25 @@
+2018-04-12 15:30:04,822 - FPGrowth - DEBUG - __init__(self = <fpgrowth.FPGrowth instance at 0x112d047a0>  input_file = Dress_AttributeDataSet.csv ,  min_sup = 150
+2018-04-12 15:30:04,826 - FPGrowth - DEBUG - shape :  (10, 15)
+2018-04-12 15:30:04,826 - FPGrowth - DEBUG - frequent_itemset(self = <fpgrowth.FPGrowth instance at 0x112d047a0> )
+2018-04-12 15:30:04,826 - FPGrowth - INFO - Generate items freq table.
+2018-04-12 15:30:04,835 - FPGrowth - INFO - Items with frequency more than min_sup : 150.
+2018-04-12 15:30:04,835 - FPGrowth - INFO - {}
+2018-04-12 15:30:04,835 - FPGrowth - INFO - Ordered item set : 
+2018-04-12 15:30:04,835 - FPGrowth - INFO - []
+2018-04-12 15:30:04,835 - FPGrowth - INFO - Items :
+2018-04-12 15:30:04,836 - FPGrowth - INFO - []
+2018-04-12 15:30:04,836 - FPGrowth - DEBUG - extract_ordered_items(self = <fpgrowth.FPGrowth instance at 0x112d047a0> , df = (10, 15) ,  support_list = [])
+2018-04-12 15:30:04,836 - FPGrowth - INFO - Transaction id: 0 , Ordered Items : []
+2018-04-12 15:30:04,836 - FPGrowth - INFO - Transaction id: 1 , Ordered Items : []
+2018-04-12 15:30:04,836 - FPGrowth - INFO - Transaction id: 2 , Ordered Items : []
+2018-04-12 15:30:04,837 - FPGrowth - INFO - Transaction id: 3 , Ordered Items : []
+2018-04-12 15:30:04,837 - FPGrowth - INFO - Transaction id: 4 , Ordered Items : []
+2018-04-12 15:30:04,837 - FPGrowth - INFO - Transaction id: 5 , Ordered Items : []
+2018-04-12 15:30:04,837 - FPGrowth - INFO - Transaction id: 6 , Ordered Items : []
+2018-04-12 15:30:04,837 - FPGrowth - INFO - Transaction id: 7 , Ordered Items : []
+2018-04-12 15:30:04,838 - FPGrowth - INFO - Transaction id: 8 , Ordered Items : []
+2018-04-12 15:30:04,838 - FPGrowth - INFO - Transaction id: 9 , Ordered Items : []
+2018-04-12 15:30:04,838 - FPGrowth - INFO - Transaction vs Ordered Items set
+2018-04-12 15:30:04,838 - FPGrowth - INFO - {0: [], 1: [], 2: [], 3: [], 4: [], 5: [], 6: [], 7: [], 8: [], 9: []}
+2018-04-12 15:30:04,838 - FPGrowth - INFO - Supported item count in ordered set:
+2018-04-12 15:30:04,838 - FPGrowth - INFO - {}

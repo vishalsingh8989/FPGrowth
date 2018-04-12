@@ -1,0 +1,13 @@
+2018-04-12 15:16:53,840 - FPGrowth - DEBUG - __init__(self = <fpgrowth.FPGrowth instance at 0x10a93e7e8>  input_file = Dress_AttributeDataSet.csv ,  min_sup = 150
+2018-04-12 15:16:53,844 - FPGrowth - DEBUG - shape :  (500, 15)
+2018-04-12 15:16:53,844 - FPGrowth - DEBUG - frequent_itemset(self = <fpgrowth.FPGrowth instance at 0x10a93e7e8> )
+2018-04-12 15:16:53,844 - FPGrowth - INFO - Generate items freq table.
+2018-04-12 15:16:53,854 - FPGrowth - INFO - Items with frequency more than min_sup : 150.
+2018-04-12 15:16:53,854 - FPGrowth - INFO - {'summer': 160, 'natural': 304, 'sleevless': 223, 'o-neck': 271, 'solid': 203, 'average': 252, 'm': 177, 'free': 173, 1: 210, 'low': 174, 'casual': 232, 'cotton': 152}
+2018-04-12 15:16:53,854 - FPGrowth - INFO - Ordered item set : 
+2018-04-12 15:16:53,854 - FPGrowth - INFO - [('cotton', 152), ('summer', 160), ('free', 173), ('low', 174), ('m', 177), ('solid', 203), (1, 210), ('sleevless', 223), ('casual', 232), ('average', 252), ('o-neck', 271), ('natural', 304)]
+2018-04-12 15:16:53,855 - FPGrowth - INFO - Items :
+2018-04-12 15:16:53,855 - FPGrowth - INFO - ['natural', 'o-neck', 'average', 'casual', 'sleevless', 1, 'solid', 'm', 'low', 'free', 'summer', 'cotton']
+2018-04-12 15:16:53,855 - FPGrowth - DEBUG - extract_ordered_items(self = <fpgrowth.FPGrowth instance at 0x10a93e7e8> , df = (500, 15) ,  support_list = ['natural', 'o-neck', 'average', 'casual', 'sleevless', 1, 'solid', 'm', 'low', 'free', 'summer', 'cotton'])
+2018-04-12 15:16:53,914 - FPGrowth - INFO - Supported item count in ordered set:
+2018-04-12 15:16:53,914 - FPGrowth - INFO - {'sleevless': 223, 1: 212, 'summer': 160, 'solid': 203, 'average': 252, 'o-neck': 271, 'm': 177, 'free': 173, 'low': 174, 'natural': 304, 'casual': 232, 'cotton': 152}
