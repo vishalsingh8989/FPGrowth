@@ -1,0 +1,2 @@
+2018-04-12 02:10:20,411 - FPGrowth - DEBUG - shape :  (500, 15)
+2018-04-12 02:10:20,412 - FPGrowth - DEBUG - ['__doc__', '__init__', '__module__', '_config', '_df', '_input_file', '_min_support', 'find_frequent_itemset', 'log']

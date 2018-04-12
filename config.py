@@ -1,4 +1,5 @@
 """
+__file__ = "config.py"
 __author__ = "Vishal Jasrotia"
 __credits__ = ["Vishal Jasrotia"]
 __version__ = "1.0.1"

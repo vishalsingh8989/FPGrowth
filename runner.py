@@ -1,4 +1,5 @@
 """
+__file__ = "runner.py"
 __author__ = "Vishal Jasrotia"
 __credits__ = ["Vishal Jasrotia"]
 __version__ = "1.0.1"
@@ -47,7 +48,7 @@ if __name__ == "__main__":
     print("Choose input file:")
     input_files = []
     for file_name in os.listdir(os.path.join(config.root, "input")):
-        if file_name.endswith(".csv")  or file_name.endswith(".data"):
+        if file_name.endswith(".csv") or file_name.endswith(".xlsx")  or file_name.endswith(".data"):
             input_files.append(file_name)
 
     print("******************************")
@@ -66,7 +67,8 @@ if __name__ == "__main__":
         exit()
     
     
-    fpg = FPGrowth(input_files[file_num])
+    min_sup = 50
+    fpg = FPGrowth(input_files[file_num], min_sup)
     fpg.find_frequent_itemset()
     
     

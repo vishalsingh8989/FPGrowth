@@ -1,0 +1,3 @@
+2018-04-12 02:13:47,399 - FPGrowth - DEBUG - __init__(self = <fpgrowth.FPGrowth instance at 0x108d59248>  input_file = Dress_AttributeDataSet.csv ,  min_sup = 30
+2018-04-12 02:13:47,404 - FPGrowth - DEBUG - shape :  (500, 15)
+2018-04-12 02:13:47,404 - FPGrowth - DEBUG - find_frequent_itemset(self = {0} )
