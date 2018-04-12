@@ -1,0 +1,31 @@
+2018-04-12 18:11:03,079 - FPGrowth - DEBUG - shape :  (15, 15)
+2018-04-12 18:11:03,079 - FPGrowth - INFO - Generate items freq table.
+2018-04-12 18:11:03,088 - FPGrowth - INFO - Items with frequency more than min_sup : 4.
+2018-04-12 18:11:03,088 - FPGrowth - INFO - {'summer': 9, 'short': 5, 'natural': 7, 'chiffon': 5, 'o-neck': 10, 'average': 7, 'm': 6, 'free': 5, 1: 6, 'low': 7}
+2018-04-12 18:11:03,088 - FPGrowth - INFO - Ordered item set : 
+2018-04-12 18:11:03,088 - FPGrowth - INFO - [('o-neck', 10), ('summer', 9), ('low', 7), ('average', 7), ('natural', 7), (1, 6), ('m', 6), ('free', 5), ('chiffon', 5), ('short', 5)]
+2018-04-12 18:11:03,088 - FPGrowth - INFO - Items :
+2018-04-12 18:11:03,088 - FPGrowth - INFO - ['o-neck', 'summer', 'low', 'average', 'natural', 1, 'm', 'free', 'chiffon', 'short']
+2018-04-12 18:11:03,089 - FPGrowth - INFO - Transaction id: 0 , Ordered Items : ['o-neck', 'summer', 'low', 1, 'm', 'chiffon']
+2018-04-12 18:11:03,089 - FPGrowth - INFO - Transaction id: 1 , Ordered Items : ['o-neck', 'summer', 'low', 'natural', 1]
+2018-04-12 18:11:03,089 - FPGrowth - INFO - Transaction id: 2 , Ordered Items : ['o-neck', 'natural']
+2018-04-12 18:11:03,089 - FPGrowth - INFO - Transaction id: 3 , Ordered Items : ['o-neck', 'average', 'natural', 1, 'chiffon']
+2018-04-12 18:11:03,089 - FPGrowth - INFO - Transaction id: 4 , Ordered Items : ['o-neck', 'summer', 'low', 'natural', 'm', 'chiffon']
+2018-04-12 18:11:03,090 - FPGrowth - INFO - Transaction id: 5 , Ordered Items : ['summer', 'low', 'm']
+2018-04-12 18:11:03,090 - FPGrowth - INFO - Transaction id: 6 , Ordered Items : ['o-neck', 'summer', 'average']
+2018-04-12 18:11:03,090 - FPGrowth - INFO - Transaction id: 7 , Ordered Items : ['o-neck', 'average', 'natural', 'free', 'short']
+2018-04-12 18:11:03,090 - FPGrowth - INFO - Transaction id: 8 , Ordered Items : ['average', 1, 'free', 'short']
+2018-04-12 18:11:03,090 - FPGrowth - INFO - Transaction id: 9 , Ordered Items : ['summer', 'low', 'natural', 1, 'free', 'chiffon']
+2018-04-12 18:11:03,091 - FPGrowth - INFO - Transaction id: 10 , Ordered Items : ['o-neck', 'summer', 'average', 'natural', 'free']
+2018-04-12 18:11:03,091 - FPGrowth - INFO - Transaction id: 11 , Ordered Items : ['average', 'free', 'short']
+2018-04-12 18:11:03,091 - FPGrowth - INFO - Transaction id: 12 , Ordered Items : ['o-neck', 'low', 1, 'm', 'chiffon']
+2018-04-12 18:11:03,091 - FPGrowth - INFO - Transaction id: 13 , Ordered Items : ['o-neck', 'summer', 'average', 1, 'm', 'short']
+2018-04-12 18:11:03,091 - FPGrowth - INFO - Transaction id: 14 , Ordered Items : ['summer', 'low', 'm', 'short']
+2018-04-12 18:11:03,092 - FPGrowth - INFO - Transaction vs Ordered Items set
+2018-04-12 18:11:03,092 - FPGrowth - INFO - {0: ['o-neck', 'summer', 'low', 1, 'm', 'chiffon'], 1: ['o-neck', 'summer', 'low', 'natural', 1], 2: ['o-neck', 'natural'], 3: ['o-neck', 'average', 'natural', 1, 'chiffon'], 4: ['o-neck', 'summer', 'low', 'natural', 'm', 'chiffon'], 5: ['summer', 'low', 'm'], 6: ['o-neck', 'summer', 'average'], 7: ['o-neck', 'average', 'natural', 'free', 'short'], 8: ['average', 1, 'free', 'short'], 9: ['summer', 'low', 'natural', 1, 'free', 'chiffon'], 10: ['o-neck', 'summer', 'average', 'natural', 'free'], 11: ['average', 'free', 'short'], 12: ['o-neck', 'low', 1, 'm', 'chiffon'], 13: ['o-neck', 'summer', 'average', 1, 'm', 'short'], 14: ['summer', 'low', 'm', 'short']}
+2018-04-12 18:11:03,092 - FPGrowth - INFO - Supported item count in ordered set: {'summer': 9, 'short': 5, 'natural': 7, 'chiffon': 5, 1: 7, 'average': 7, 'o-neck': 10, 'm': 6, 'free': 5, 'low': 7}
+2018-04-12 18:11:03,092 - FPGrowth - INFO - Header table for FP Tree : [['o-neck', 10, None], ['summer', 9, None], ['low', 7, None], ['average', 7, None], ['natural', 7, None], [1, 6, None], ['m', 6, None], ['free', 5, None], ['chiffon', 5, None], ['short', 5, None]]
+2018-04-12 18:11:03,092 - FPGrowth - INFO - Root node : NULL, count : 15, neighbour :(None), childrens :[<node.Node instance at 0x10e8aff80>, <node.Node instance at 0x10e8ce7e8>, <node.Node instance at 0x10e8ceb48>]
+2018-04-12 18:11:03,092 - FPGrowth - INFO - Child node : o-neck, count : 10, neighbour :(None), childrens :[<node.Node instance at 0x10e8affc8>, <node.Node instance at 0x10e8ce3f8>, <node.Node instance at 0x10e8ce488>, <node.Node instance at 0x10e8cf248>]
+2018-04-12 18:11:03,093 - FPGrowth - INFO - Child node : summer, count : 3, neighbour :(None), childrens :[<node.Node instance at 0x10e8ce878>]
+2018-04-12 18:11:03,093 - FPGrowth - INFO - Child node : average, count : 2, neighbour :(None), childrens :[<node.Node instance at 0x10e8cebd8>, <node.Node instance at 0x10e8cf128>]

@@ -12,10 +12,14 @@ class Node:
     """ FP tree node single node class
     """
     
-    def __init__(self, val ,  count = 1):
+    def __init__(self, val ,  count = 0):
         self.val = val
         self.count = count
         self.childrens = []
         self.neighbour = None
+    
+    def __str__(self):
+        return "{0}, count : {1}, neighbour :({2}), childrens :{3}".format(self.val, self.count, self.neighbour, self.childrens)
+        
     
     

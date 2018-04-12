@@ -1,0 +1,25 @@
+2018-04-12 15:38:32,606 - FPGrowth - DEBUG - __init__(self = <fpgrowth.FPGrowth instance at 0x108d167e8>  input_file = Dress_AttributeDataSet.csv ,  min_sup = 4
+2018-04-12 15:38:32,612 - FPGrowth - DEBUG - shape :  (10, 15)
+2018-04-12 15:38:32,612 - FPGrowth - DEBUG - frequent_itemset(self = <fpgrowth.FPGrowth instance at 0x108d167e8> )
+2018-04-12 15:38:32,612 - FPGrowth - INFO - Generate items freq table.
+2018-04-12 15:38:32,622 - FPGrowth - INFO - Items with frequency more than min_sup : 4.
+2018-04-12 15:38:32,622 - FPGrowth - INFO - {'summer': 6, 'natural': 6, 'low': 5, 'o-neck': 7}
+2018-04-12 15:38:32,622 - FPGrowth - INFO - Ordered item set : 
+2018-04-12 15:38:32,622 - FPGrowth - INFO - [[('summer', 6), ('natural', 6), ('low', 5), ('o-neck', 7)]]
+2018-04-12 15:38:32,622 - FPGrowth - INFO - Items :
+2018-04-12 15:38:32,622 - FPGrowth - INFO - [('summer', 6)]
+2018-04-12 15:38:32,622 - FPGrowth - DEBUG - extract_ordered_items(self = <fpgrowth.FPGrowth instance at 0x108d167e8> , df = (10, 15) ,  support_list = [('summer', 6)])
+2018-04-12 15:38:32,623 - FPGrowth - INFO - Transaction id: 0 , Ordered Items : []
+2018-04-12 15:38:32,623 - FPGrowth - INFO - Transaction id: 1 , Ordered Items : []
+2018-04-12 15:38:32,623 - FPGrowth - INFO - Transaction id: 2 , Ordered Items : []
+2018-04-12 15:38:32,623 - FPGrowth - INFO - Transaction id: 3 , Ordered Items : []
+2018-04-12 15:38:32,624 - FPGrowth - INFO - Transaction id: 4 , Ordered Items : []
+2018-04-12 15:38:32,624 - FPGrowth - INFO - Transaction id: 5 , Ordered Items : []
+2018-04-12 15:38:32,624 - FPGrowth - INFO - Transaction id: 6 , Ordered Items : []
+2018-04-12 15:38:32,625 - FPGrowth - INFO - Transaction id: 7 , Ordered Items : []
+2018-04-12 15:38:32,625 - FPGrowth - INFO - Transaction id: 8 , Ordered Items : []
+2018-04-12 15:38:32,625 - FPGrowth - INFO - Transaction id: 9 , Ordered Items : []
+2018-04-12 15:38:32,625 - FPGrowth - INFO - Transaction vs Ordered Items set
+2018-04-12 15:38:32,625 - FPGrowth - INFO - {0: [], 1: [], 2: [], 3: [], 4: [], 5: [], 6: [], 7: [], 8: [], 9: []}
+2018-04-12 15:38:32,626 - FPGrowth - INFO - Supported item count in ordered set:
+2018-04-12 15:38:32,626 - FPGrowth - INFO - {}

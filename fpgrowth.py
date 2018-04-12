@@ -14,7 +14,8 @@ import pandas as pd
 
 from fplogger import FPLogger
 from config import Config
-
+from node import Node
+import node
 
 DEBUG = True
 
@@ -42,6 +43,7 @@ class FPGrowth:
             self.log.error("File type {0} is not supported. Only csv and xslx file supported.".format(self._input_file.split(".")[1]))
         
         self._df = self._df[:10]
+        print(self._df)
         self.log.debug("shape :  {0}".format(self._df.shape))
     
     
@@ -67,24 +69,97 @@ class FPGrowth:
   
         self._item_support_list  = [item[0] for item in self._item_support]
         self._item_support_list.reverse()
-        
         self.log.info("Ordered item set : ")
         self._item_support.reverse()
-        self.log.info(self._item_support())
+        self.log.info(self._item_support)
         
         self.log.info("Items :")
-        self.log.info(self._item_support_list)
-        
+        self.log.info(self._item_support_list)    
         self._ordered_items = self.extract_ordered_items(self._df, self._item_support_list)
-        
+    
         self.supported_item_count = {}
         for transaction_id, ordered_set in self._ordered_items.iteritems():
             for item in ordered_set:
                 self.supported_item_count[item] = self.supported_item_count.get(item, 0) + 1
         
-        self.log.info("Supported item count in ordered set:")
-        self.log.info(self.supported_item_count)
+        self.log.info("Supported item count in ordered set: {0}".format(self.supported_item_count))
+        self.header_table = []
+        for attr, freq in self._item_support:
+            table_row = [attr, freq, None]
+            self.header_table.append(table_row)
+        
+        self.log.info("Header table for FP Tree : {0}".format(self.header_table))
+        self.fptree_root = self.make_fp_tree(self.header_table, self._ordered_items)
+        self.log.info("Root node : {0}".format(self.fptree_root))
+        for child in self.fptree_root.childrens:
+            self.log.info("Child node : {0}".format(child))
+        
+        
+    def make_fp_tree(self, header_table, ordered_set):
+        """Make FP tree.
+        @param header_table: Header table for FPtree links 
+        @param ordered_set: Ordered set
+        """
+        if DEBUG:
+            self.log.debug(sys._getframe().f_code.co_name + "(self = {0},\n header_table = {1},\n ordered_set = {2})".format(self, header_table, ordered_set))
+        
+        self.fp_tree = Node("NULL", 1)
+        for transaction_id, ordered_set in self._ordered_items.iteritems():
+            curr_node = self.fp_tree
+            if len(ordered_set) == 0:
+                continue
+            last_node_exist = False
+            for attr in ordered_set:
+                if self.find_child(curr_node, attr):
+                    curr_node.count = curr_node.count +  1
+                    curr_node = self.find_child(curr_node, attr)
+                    last_node_exist = True
+                else:
+                    node = Node(attr, 1)
+                    if len(curr_node.childrens) > 0:
+                        curr_node.count  =  curr_node.count + 1
+                    curr_node.childrens.append(node)
+                    
+                    self.link_header_table(header_table, node)
+                    curr_node = node
+                    last_node_exist = False
+            
+            if last_node_exist:
+                curr_node.count = curr_node.count +  1
+
+               
+        
+        return self.fp_tree
                 
+                    
+    def find_child(self, curr_node, attr):
+        """
+        """
+        for child in curr_node.childrens:
+            if child.val == attr:
+                return child
+        return None 
+                    
+                
+    def link_header_table(self, header_table, node):
+        """
+        Link header table entries and link FPTree. 
+        @param header_table: Header table for FPtree links 
+        @param ordered_set: Ordered set        
+        """
+        
+        if DEBUG:
+            self.log.debug(sys._getframe().f_code.co_name + "(self = {0} , header_table = {1}, node = {2})".format(self, header_table, node))
+        
+        for row in header_table:
+            if row[0] == node.val:
+                if row[2] is None:
+                    row[2] = node
+                else:
+                    curr_node = row[2]
+                    while curr_node.neighbour is not None:
+                        curr_node =  curr_node.neighbour 
+                    curr_node.neighbour = node        
         
         
                 

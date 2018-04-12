@@ -1,0 +1,25 @@
+2018-04-12 15:45:33,600 - FPGrowth - DEBUG - __init__(self = <fpgrowth.FPGrowth instance at 0x1098c79e0>  input_file = Dress_AttributeDataSet.csv ,  min_sup = 4
+2018-04-12 15:45:33,604 - FPGrowth - DEBUG - shape :  (10, 15)
+2018-04-12 15:45:33,604 - FPGrowth - DEBUG - frequent_itemset(self = <fpgrowth.FPGrowth instance at 0x1098c79e0> )
+2018-04-12 15:45:33,604 - FPGrowth - INFO - Generate items freq table.
+2018-04-12 15:45:33,615 - FPGrowth - INFO - Items with frequency more than min_sup : 4.
+2018-04-12 15:45:33,615 - FPGrowth - INFO - {'summer': 6, 'natural': 6, 'low': 5, 'o-neck': 7}
+2018-04-12 15:45:33,615 - FPGrowth - INFO - Ordered item set : 
+2018-04-12 15:45:33,615 - FPGrowth - INFO - [('o-neck', 7), ('natural', 6), ('summer', 6), ('low', 5)]
+2018-04-12 15:45:33,615 - FPGrowth - INFO - Items :
+2018-04-12 15:45:33,615 - FPGrowth - INFO - ['o-neck', 'natural', 'summer', 'low']
+2018-04-12 15:45:33,615 - FPGrowth - DEBUG - extract_ordered_items(self = <fpgrowth.FPGrowth instance at 0x1098c79e0> , df = (10, 15) ,  support_list = ['o-neck', 'natural', 'summer', 'low'])
+2018-04-12 15:45:33,616 - FPGrowth - INFO - Transaction id: 0 , Ordered Items : ['o-neck', 'summer', 'low']
+2018-04-12 15:45:33,616 - FPGrowth - INFO - Transaction id: 1 , Ordered Items : ['o-neck', 'natural', 'summer', 'low']
+2018-04-12 15:45:33,616 - FPGrowth - INFO - Transaction id: 2 , Ordered Items : ['o-neck', 'natural']
+2018-04-12 15:45:33,616 - FPGrowth - INFO - Transaction id: 3 , Ordered Items : ['o-neck', 'natural']
+2018-04-12 15:45:33,617 - FPGrowth - INFO - Transaction id: 4 , Ordered Items : ['o-neck', 'natural', 'summer', 'low']
+2018-04-12 15:45:33,617 - FPGrowth - INFO - Transaction id: 5 , Ordered Items : ['summer', 'low']
+2018-04-12 15:45:33,617 - FPGrowth - INFO - Transaction id: 6 , Ordered Items : ['o-neck', 'summer']
+2018-04-12 15:45:33,617 - FPGrowth - INFO - Transaction id: 7 , Ordered Items : ['o-neck', 'natural']
+2018-04-12 15:45:33,617 - FPGrowth - INFO - Transaction id: 8 , Ordered Items : []
+2018-04-12 15:45:33,617 - FPGrowth - INFO - Transaction id: 9 , Ordered Items : ['natural', 'summer', 'low']
+2018-04-12 15:45:33,618 - FPGrowth - INFO - Transaction vs Ordered Items set
+2018-04-12 15:45:33,618 - FPGrowth - INFO - {0: ['o-neck', 'summer', 'low'], 1: ['o-neck', 'natural', 'summer', 'low'], 2: ['o-neck', 'natural'], 3: ['o-neck', 'natural'], 4: ['o-neck', 'natural', 'summer', 'low'], 5: ['summer', 'low'], 6: ['o-neck', 'summer'], 7: ['o-neck', 'natural'], 8: [], 9: ['natural', 'summer', 'low']}
+2018-04-12 15:45:33,618 - FPGrowth - INFO - Supported item count in ordered set: {'summer': 6, 'natural': 6, 'low': 5, 'o-neck': 7}
+2018-04-12 15:45:33,618 - FPGrowth - INFO - Header table for FP Tree : [['o-neck', 7, None], ['natural', 6, None], ['summer', 6, None], ['low', 5, None]]

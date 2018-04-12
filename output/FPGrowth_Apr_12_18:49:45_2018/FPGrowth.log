@@ -1,0 +1,43 @@
+2018-04-12 18:49:45,317 - FPGrowth - DEBUG - __init__(self = <fpgrowth.FPGrowth instance at 0x10fe90ea8>  input_file = Dress_AttributeDataSet.csv ,  min_sup = 4
+2018-04-12 18:49:45,332 - FPGrowth - DEBUG - shape :  (10, 15)
+2018-04-12 18:49:45,332 - FPGrowth - DEBUG - frequent_itemset(self = <fpgrowth.FPGrowth instance at 0x10fe90ea8> )
+2018-04-12 18:49:45,332 - FPGrowth - INFO - Generate items freq table.
+2018-04-12 18:49:45,340 - FPGrowth - INFO - Items with frequency more than min_sup : 4.
+2018-04-12 18:49:45,340 - FPGrowth - INFO - {'summer': 6, 'natural': 6, 'low': 5, 'o-neck': 7}
+2018-04-12 18:49:45,340 - FPGrowth - INFO - Ordered item set : 
+2018-04-12 18:49:45,340 - FPGrowth - INFO - [('o-neck', 7), ('natural', 6), ('summer', 6), ('low', 5)]
+2018-04-12 18:49:45,340 - FPGrowth - INFO - Items :
+2018-04-12 18:49:45,340 - FPGrowth - INFO - ['o-neck', 'natural', 'summer', 'low']
+2018-04-12 18:49:45,340 - FPGrowth - DEBUG - extract_ordered_items(self = <fpgrowth.FPGrowth instance at 0x10fe90ea8> , df = (10, 15) ,  support_list = ['o-neck', 'natural', 'summer', 'low'])
+2018-04-12 18:49:45,341 - FPGrowth - INFO - Transaction id: 0 , Ordered Items : ['o-neck', 'summer', 'low']
+2018-04-12 18:49:45,341 - FPGrowth - INFO - Transaction id: 1 , Ordered Items : ['o-neck', 'natural', 'summer', 'low']
+2018-04-12 18:49:45,341 - FPGrowth - INFO - Transaction id: 2 , Ordered Items : ['o-neck', 'natural']
+2018-04-12 18:49:45,341 - FPGrowth - INFO - Transaction id: 3 , Ordered Items : ['o-neck', 'natural']
+2018-04-12 18:49:45,341 - FPGrowth - INFO - Transaction id: 4 , Ordered Items : ['o-neck', 'natural', 'summer', 'low']
+2018-04-12 18:49:45,342 - FPGrowth - INFO - Transaction id: 5 , Ordered Items : ['summer', 'low']
+2018-04-12 18:49:45,342 - FPGrowth - INFO - Transaction id: 6 , Ordered Items : ['o-neck', 'summer']
+2018-04-12 18:49:45,342 - FPGrowth - INFO - Transaction id: 7 , Ordered Items : ['o-neck', 'natural']
+2018-04-12 18:49:45,342 - FPGrowth - INFO - Transaction id: 8 , Ordered Items : []
+2018-04-12 18:49:45,342 - FPGrowth - INFO - Transaction id: 9 , Ordered Items : ['natural', 'summer', 'low']
+2018-04-12 18:49:45,342 - FPGrowth - INFO - Transaction vs Ordered Items set
+2018-04-12 18:49:45,343 - FPGrowth - INFO - {0: ['o-neck', 'summer', 'low'], 1: ['o-neck', 'natural', 'summer', 'low'], 2: ['o-neck', 'natural'], 3: ['o-neck', 'natural'], 4: ['o-neck', 'natural', 'summer', 'low'], 5: ['summer', 'low'], 6: ['o-neck', 'summer'], 7: ['o-neck', 'natural'], 8: [], 9: ['natural', 'summer', 'low']}
+2018-04-12 18:49:45,343 - FPGrowth - INFO - Supported item count in ordered set: {'summer': 6, 'natural': 6, 'low': 5, 'o-neck': 7}
+2018-04-12 18:49:45,343 - FPGrowth - INFO - Header table for FP Tree : [['o-neck', 7, None], ['natural', 6, None], ['summer', 6, None], ['low', 5, None]]
+2018-04-12 18:49:45,343 - FPGrowth - DEBUG - make_fp_tree(self = <fpgrowth.FPGrowth instance at 0x10fe90ea8>,
+ header_table = [['o-neck', 7, None], ['natural', 6, None], ['summer', 6, None], ['low', 5, None]],
+ ordered_set = {0: ['o-neck', 'summer', 'low'], 1: ['o-neck', 'natural', 'summer', 'low'], 2: ['o-neck', 'natural'], 3: ['o-neck', 'natural'], 4: ['o-neck', 'natural', 'summer', 'low'], 5: ['summer', 'low'], 6: ['o-neck', 'summer'], 7: ['o-neck', 'natural'], 8: [], 9: ['natural', 'summer', 'low']})
+2018-04-12 18:49:45,343 - FPGrowth - DEBUG - link_header_table(self = <fpgrowth.FPGrowth instance at 0x10fe90ea8> , header_table = [['o-neck', 7, None], ['natural', 6, None], ['summer', 6, None], ['low', 5, None]], node = o-neck, count : 1, neighbour :(None), childrens :[])
+2018-04-12 18:49:45,343 - FPGrowth - DEBUG - link_header_table(self = <fpgrowth.FPGrowth instance at 0x10fe90ea8> , header_table = [['o-neck', 7, <node.Node instance at 0x10febd680>], ['natural', 6, None], ['summer', 6, None], ['low', 5, None]], node = summer, count : 1, neighbour :(None), childrens :[])
+2018-04-12 18:49:45,343 - FPGrowth - DEBUG - link_header_table(self = <fpgrowth.FPGrowth instance at 0x10fe90ea8> , header_table = [['o-neck', 7, <node.Node instance at 0x10febd680>], ['natural', 6, None], ['summer', 6, <node.Node instance at 0x10febd6c8>], ['low', 5, None]], node = low, count : 1, neighbour :(None), childrens :[])
+2018-04-12 18:49:45,343 - FPGrowth - DEBUG - link_header_table(self = <fpgrowth.FPGrowth instance at 0x10fe90ea8> , header_table = [['o-neck', 7, <node.Node instance at 0x10febd680>], ['natural', 6, None], ['summer', 6, <node.Node instance at 0x10febd6c8>], ['low', 5, <node.Node instance at 0x10febd9e0>]], node = natural, count : 1, neighbour :(None), childrens :[])
+2018-04-12 18:49:45,343 - FPGrowth - DEBUG - link_header_table(self = <fpgrowth.FPGrowth instance at 0x10fe90ea8> , header_table = [['o-neck', 7, <node.Node instance at 0x10febd680>], ['natural', 6, <node.Node instance at 0x10febda28>], ['summer', 6, <node.Node instance at 0x10febd6c8>], ['low', 5, <node.Node instance at 0x10febd9e0>]], node = summer, count : 1, neighbour :(None), childrens :[])
+2018-04-12 18:49:45,343 - FPGrowth - DEBUG - link_header_table(self = <fpgrowth.FPGrowth instance at 0x10fe90ea8> , header_table = [['o-neck', 7, <node.Node instance at 0x10febd680>], ['natural', 6, <node.Node instance at 0x10febda28>], ['summer', 6, <node.Node instance at 0x10febd6c8>], ['low', 5, <node.Node instance at 0x10febd9e0>]], node = low, count : 1, neighbour :(None), childrens :[])
+2018-04-12 18:49:45,343 - FPGrowth - DEBUG - link_header_table(self = <fpgrowth.FPGrowth instance at 0x10fe90ea8> , header_table = [['o-neck', 7, <node.Node instance at 0x10febd680>], ['natural', 6, <node.Node instance at 0x10febda28>], ['summer', 6, <node.Node instance at 0x10febd6c8>], ['low', 5, <node.Node instance at 0x10febd9e0>]], node = summer, count : 1, neighbour :(None), childrens :[])
+2018-04-12 18:49:45,343 - FPGrowth - DEBUG - link_header_table(self = <fpgrowth.FPGrowth instance at 0x10fe90ea8> , header_table = [['o-neck', 7, <node.Node instance at 0x10febd680>], ['natural', 6, <node.Node instance at 0x10febda28>], ['summer', 6, <node.Node instance at 0x10febd6c8>], ['low', 5, <node.Node instance at 0x10febd9e0>]], node = low, count : 1, neighbour :(None), childrens :[])
+2018-04-12 18:49:45,344 - FPGrowth - DEBUG - link_header_table(self = <fpgrowth.FPGrowth instance at 0x10fe90ea8> , header_table = [['o-neck', 7, <node.Node instance at 0x10febd680>], ['natural', 6, <node.Node instance at 0x10febda28>], ['summer', 6, <node.Node instance at 0x10febd6c8>], ['low', 5, <node.Node instance at 0x10febd9e0>]], node = natural, count : 1, neighbour :(None), childrens :[])
+2018-04-12 18:49:45,344 - FPGrowth - DEBUG - link_header_table(self = <fpgrowth.FPGrowth instance at 0x10fe90ea8> , header_table = [['o-neck', 7, <node.Node instance at 0x10febd680>], ['natural', 6, <node.Node instance at 0x10febda28>], ['summer', 6, <node.Node instance at 0x10febd6c8>], ['low', 5, <node.Node instance at 0x10febd9e0>]], node = summer, count : 1, neighbour :(None), childrens :[])
+2018-04-12 18:49:45,344 - FPGrowth - DEBUG - link_header_table(self = <fpgrowth.FPGrowth instance at 0x10fe90ea8> , header_table = [['o-neck', 7, <node.Node instance at 0x10febd680>], ['natural', 6, <node.Node instance at 0x10febda28>], ['summer', 6, <node.Node instance at 0x10febd6c8>], ['low', 5, <node.Node instance at 0x10febd9e0>]], node = low, count : 1, neighbour :(None), childrens :[])
+2018-04-12 18:49:45,344 - FPGrowth - INFO - Root node : NULL, count : 7, neighbour :(None), childrens :[<node.Node instance at 0x10febd680>, <node.Node instance at 0x10febdb00>, <node.Node instance at 0x10febdb90>]
+2018-04-12 18:49:45,344 - FPGrowth - INFO - Child node : o-neck, count : 6, neighbour :(None), childrens :[<node.Node instance at 0x10febd6c8>, <node.Node instance at 0x10febda28>]
+2018-04-12 18:49:45,344 - FPGrowth - INFO - Child node : summer, count : 1, neighbour :(summer, count : 1, neighbour :(None), childrens :[<node.Node instance at 0x10febdc20>]), childrens :[<node.Node instance at 0x10febdb48>]
+2018-04-12 18:49:45,344 - FPGrowth - INFO - Child node : natural, count : 1, neighbour :(None), childrens :[<node.Node instance at 0x10febdbd8>]
