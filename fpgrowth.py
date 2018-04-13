@@ -18,7 +18,7 @@ from config import Config
 from node import Node
 import node
 
-DEBUG = True
+DEBUG = False
 
 class FPGrowth:
     """ FP Growth algorithm : https://dl.acm.org/citation.cfm?doid=335191.335372
@@ -112,7 +112,7 @@ class FPGrowth:
         self.log.debug("Generate conditional pattern base:")
         self.generate_conditional_pattern_base(self.fptree_root, self.conditional_pattern_base , [])
         
-        self.log.debug(self.conditional_pattern_base)
+        #self.log.debug(self.conditional_pattern_base)
         
         
         self.conditional_pattern_tree_count,self.conditional_pattern_tree = self.generate_conditional_pattern_tree(self.conditional_pattern_base)
@@ -127,9 +127,7 @@ class FPGrowth:
                     count = min([ val[k] for k in freq_pattern]) 
                     freq_pattern = list(freq_pattern) + [key]
                     self.log.debug(str(freq_pattern) + " : " + str(count))
-            
-            
-            
+               
      
     def generate_conditional_pattern_tree(self, conditional_pattern_base):
         """ Generate condition pattern tree using pattern base
@@ -146,17 +144,14 @@ class FPGrowth:
                 for item in association:
                     cache[item] = cache.get(item, 0) + c
                 count += c
-                
             reduced = {}
             for k, v in cache.iteritems():
                 if v >  self._min_support:
                     reduced[k] = v
-            
             if len(reduced) > 0 :
                 count = min([v for k,v in reduced.iteritems()])
             else:
                 count = count
-                
             conditional_pattern_tree[key] = reduced
             conditional_pattern_tree_count[key] = count
         return conditional_pattern_tree_count, conditional_pattern_tree, 
@@ -269,8 +264,8 @@ class FPGrowth:
             self.log.info("Transaction id: {0} , Ordered Items : {1}".format(row[0],item_list))
            
            
-        self.log.info("Transaction vs Ordered Items set")     
-        self.log.info(ordered_items)
+        #self.log.info("Transaction vs Ordered Items set")     
+        #self.log.info(ordered_items)
         
         return ordered_items
 

@@ -18,7 +18,7 @@ import pandas as pd
 from fplogger import FPLogger
 from fpgrowth import FPGrowth
 from config import Config
-
+from optparse import OptionParser
 
 
 def set_up_environment():
@@ -45,32 +45,22 @@ if __name__ == "__main__":
     set_up_environment()
     config = Config()
     
-    print("Choose input file:")
-    input_files = []
-    for file_name in os.listdir(os.path.join(config.root, "input")):
-        if file_name.endswith(".csv") or file_name.endswith(".xlsx")  or file_name.endswith(".data"):
-            input_files.append(file_name)
+    
+    args = OptionParser(usage='% prog data_file')
+    args.add_option('-m', '--minimum-support', dest='minimum_support', type='int')
+    args.add_option('-f', '--file', dest='file_name', type='string')
+    args.set_defaults(minimum_support=150)
+    
+    options, args = args.parse_args()
 
-    print("******************************")
-    print("****   INPUT FILES    ********")
-    print("******************************")
-    for i, file_name in enumerate(input_files,1):
-        print("{0} :  {1}".format(i, file_name))
-    print("******************************")
-    print("Enter your choice : ")
-    file_num = 0#int(input()) - 1
-    
-    if file_num >=0  and file_num < len(input_files):
-        print("Input file : {0}".format(input_files[file_num]))
+    if options.file_name.endswith(".csv") or options.file_name.endswith(".xlsx")  or options.file_name.endswith(".data"):
+        pass
     else:
-        print("Invalid file number. exit.")
+        print("csv or xlsx file required.")
         exit()
+        
     
-    
-    min_sup = 150
-    
-    
-    fpg = FPGrowth(input_files[file_num], min_sup)
+    fpg = FPGrowth(options.file_name, options.minimum_support)
     fpg.frequent_itemset()
     
     
