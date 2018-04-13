@@ -1,8 +1,0 @@
-2018-04-12 14:34:24,556 - FPGrowth - DEBUG - __init__(self = <fpgrowth.FPGrowth instance at 0x11049e050>  input_file = Dress_AttributeDataSet.csv ,  min_sup = 5
-2018-04-12 14:34:24,559 - FPGrowth - DEBUG - shape :  (40, 15)
-2018-04-12 14:34:24,559 - FPGrowth - DEBUG - frequent_itemset(self = <fpgrowth.FPGrowth instance at 0x11049e050> )
-2018-04-12 14:34:24,559 - FPGrowth - INFO - Generate items freq table.
-2018-04-12 14:34:24,569 - FPGrowth - INFO - Items with frequency more than min_sup : 5.
-2018-04-12 14:34:24,569 - FPGrowth - INFO - {'summer': 13, 'lace': 6, 'chiffon': 12, 'o-neck': 27, 'spring': 10, 'polyster': 6, 4.6: 6, 'empire': 11, 'casual': 11, 'cotton': 15, 1: 18, 'winter': 6, 4.7: 6, 'low': 15, 'automn': 11, 'print': 9, 'sleevless': 16, 'full': 9, 'free': 11, 'v-neck': 8, 'sexy': 8, 'short': 10, 'natural': 21, 'solid': 15, 'average': 22, 'm': 17, 'l': 9}
-2018-04-12 14:34:24,569 - FPGrowth - INFO - Ordered item set : 
-2018-04-12 14:34:24,569 - FPGrowth - INFO - [('lace', 6), ('polyster', 6), (4.6, 6), ('winter', 6), (4.7, 6), ('v-neck', 8), ('sexy', 8), ('print', 9), ('full', 9), ('l', 9), ('spring', 10), ('short', 10), ('empire', 11), ('casual', 11), ('automn', 11), ('free', 11), ('chiffon', 12), ('summer', 13), ('cotton', 15), ('low', 15), ('solid', 15), ('sleevless', 16), ('m', 17), (1, 18), ('natural', 21), ('average', 22), ('o-neck', 27)]

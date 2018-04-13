@@ -1,8 +1,0 @@
-2018-04-12 14:33:37,315 - FPGrowth - DEBUG - __init__(self = <fpgrowth.FPGrowth instance at 0x104e28488>  input_file = Dress_AttributeDataSet.csv ,  min_sup = 1
-2018-04-12 14:33:37,320 - FPGrowth - DEBUG - shape :  (20, 15)
-2018-04-12 14:33:37,320 - FPGrowth - DEBUG - frequent_itemset(self = <fpgrowth.FPGrowth instance at 0x104e28488> )
-2018-04-12 14:33:37,320 - FPGrowth - INFO - Generate items freq table.
-2018-04-12 14:33:37,333 - FPGrowth - INFO - Items with frequency more than min_sup : 1
-2018-04-12 14:33:37,333 - FPGrowth - INFO - {'cute': 2, 5.0: 4, 'chiffon': 5, 'summer': 9, 'spring': 4, 'polyster': 3, 'threequarter': 2, 4.6: 2, 'empire': 5, 'lace': 4, 'casual': 4, 'cotton': 6, 1: 9, 'winter': 3, 'vintage': 2, 'o-neck': 13, 'brief': 2, 'ruffles': 2, 4.7: 2, 'low': 8, 'automn': 4, 'nylon': 2, 'print': 4, 'sashes': 2, 'sleevless': 4, 'full': 6, 'animal': 4, 'free': 7, 'v-neck': 4, 'sexy': 3, 'short': 6, 'natural': 9, 'solid': 5, 'flare': 2, 'average': 10, 'm': 8, 'l': 4, 'patchwork': 2, 'bohemian': 3, 'boat-neck': 2, 'broadcloth': 3}
-2018-04-12 14:33:37,333 - FPGrowth - INFO - Ordered item set
-2018-04-12 14:33:37,333 - FPGrowth - INFO - [('cute', 2), ('threequarter', 2), (4.6, 2), ('vintage', 2), ('brief', 2), ('ruffles', 2), (4.7, 2), ('nylon', 2), ('sashes', 2), ('flare', 2), ('patchwork', 2), ('boat-neck', 2), ('polyster', 3), ('winter', 3), ('sexy', 3), ('bohemian', 3), ('broadcloth', 3), (5.0, 4), ('spring', 4), ('lace', 4), ('casual', 4), ('automn', 4), ('print', 4), ('sleevless', 4), ('animal', 4), ('v-neck', 4), ('l', 4), ('chiffon', 5), ('empire', 5), ('solid', 5), ('cotton', 6), ('full', 6), ('short', 6), ('free', 7), ('low', 8), ('m', 8), ('summer', 9), (1, 9), ('natural', 9), ('average', 10), ('o-neck', 13)]

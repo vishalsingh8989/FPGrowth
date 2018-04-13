@@ -10,6 +10,7 @@ __status__ = "In Progress"
 
 import os
 import sys
+import itertools
 import pandas as pd
 
 from fplogger import FPLogger
@@ -29,8 +30,7 @@ class FPGrowth:
         """
         self.log = FPLogger()
         self._config = Config()
-        self._invalid_attr = ["0.0", "null", 0.0]
-        
+        self._invalid_attr = ["null"]
         if DEBUG:
             self.log.debug(sys._getframe().f_code.co_name + "(self = {0}  input_file = {1} ,  min_sup = {2}".format(self, input_file, min_sup))
         self._min_support = min_sup
@@ -42,7 +42,9 @@ class FPGrowth:
         else:
             self.log.error("File type {0} is not supported. Only csv and xslx file supported.".format(self._input_file.split(".")[1]))
         
-        self._df = self._df[:10]
+        
+        
+        #self._df = self._df[:25]
         print(self._df)
         self.log.debug("shape :  {0}".format(self._df.shape))
     
@@ -56,13 +58,22 @@ class FPGrowth:
         if DEBUG:
             self.log.debug(sys._getframe().f_code.co_name + "(self = {0} )".format(self))
         
+        self._table = {}
         self._attr_freq_table = {}
         self._dropped = {}
         self.log.info("Generate items freq table.")
-        for column in self._df.columns:
-            for attr, count in self._df[column].value_counts().iteritems():
-                if count >  self._min_support and attr not in self._invalid_attr:
-                    self._attr_freq_table[attr] = count
+        for row in self._df.iterrows():
+            for val in row[1]:
+                if val not in self._invalid_attr:
+                    self._table[val] = self._table.get(val, 0) + 1
+        
+        for key , val in self._table.iteritems():
+            if val > self._min_support:
+                self._attr_freq_table[key] = val
+                
+        for key , val in self._attr_freq_table.iteritems():
+            self.log.debug(key)
+            self.log.debug(val)
         self.log.info("Items with frequency more than min_sup : {0}.".format(self._min_support))
         self.log.info(self._attr_freq_table)
         self._item_support = sorted(self._attr_freq_table.items(), key=lambda x: x[1])
@@ -89,10 +100,87 @@ class FPGrowth:
             self.header_table.append(table_row)
         
         self.log.info("Header table for FP Tree : {0}".format(self.header_table))
-        self.fptree_root = self.make_fp_tree(self.header_table, self._ordered_items)
+        self.header_table, self.fptree_root = self.make_fp_tree(self.header_table, self._ordered_items)
+        
+        
         self.log.info("Root node : {0}".format(self.fptree_root))
-        for child in self.fptree_root.childrens:
-            self.log.info("Child node : {0}".format(child))
+        self.log.info("Header table for FPTree")
+        for row in self.header_table:
+            self.log.info(row)
+        
+        self.conditional_pattern_base = {}
+        self.log.debug("Generate conditional pattern base:")
+        self.generate_conditional_pattern_base(self.fptree_root, self.conditional_pattern_base , [])
+        
+        self.log.debug(self.conditional_pattern_base)
+        
+        
+        self.conditional_pattern_tree_count,self.conditional_pattern_tree = self.generate_conditional_pattern_tree(self.conditional_pattern_base)
+        self.log.debug("****************************")
+        self.log.debug("Frequent pattern items:")
+        
+        for key, val in self.conditional_pattern_tree.iteritems():    
+            self.log.debug("[ " + str(key) + "] : " + str(self.conditional_pattern_tree_count[key]))
+            for size in xrange(1,len(val)+1):
+                attr_list = list(itertools.combinations(val.keys(), size))
+                for freq_pattern in attr_list:
+                    count = min([ val[k] for k in freq_pattern]) 
+                    freq_pattern = list(freq_pattern) + [key]
+                    self.log.debug(str(freq_pattern) + " : " + str(count))
+            
+            
+            
+     
+    def generate_conditional_pattern_tree(self, conditional_pattern_base):
+        """ Generate condition pattern tree using pattern base
+        @param conditional_pattern_base: dict od attr vs tuple vs count
+        """
+        if DEBUG:
+            self.log.debug(sys._getframe().f_code.co_name + "(self = {0}, conditional_pattern_base = {1} )".format(self, conditional_pattern_base))
+        conditional_pattern_tree = {}
+        conditional_pattern_tree_count = {}
+        for key, val  in conditional_pattern_base.iteritems():
+            cache = {}
+            count = 0
+            for association, c  in val.iteritems():
+                for item in association:
+                    cache[item] = cache.get(item, 0) + c
+                count += c
+                
+            reduced = {}
+            for k, v in cache.iteritems():
+                if v >  self._min_support:
+                    reduced[k] = v
+            
+            if len(reduced) > 0 :
+                count = min([v for k,v in reduced.iteritems()])
+            else:
+                count = count
+                
+            conditional_pattern_tree[key] = reduced
+            conditional_pattern_tree_count[key] = count
+        return conditional_pattern_tree_count, conditional_pattern_tree, 
+
+
+        
+    def generate_conditional_pattern_base(self, root , conditional_pattern_base, ancestors_list, indt =  "|-->"):
+        """
+        Generate conditinal pattern base.
+        
+        """
+        if root is not None:
+            if root.val != "NULL":
+                if conditional_pattern_base.get(root.val, None) is None:
+                    conditional_pattern_base[root.val] = {tuple(ancestors_list) : root.count}
+                else:
+                    conditional_pattern_base[root.val][tuple(ancestors_list)] = root.count
+                ancestors_list.append(root.val)
+        
+            for child in root.childrens:
+                self.generate_conditional_pattern_base(child, conditional_pattern_base, ancestors_list, indt + "|-->")
+            
+            if root.val != "NULL":
+                ancestors_list.pop()
         
         
     def make_fp_tree(self, header_table, ordered_set):
@@ -103,9 +191,9 @@ class FPGrowth:
         if DEBUG:
             self.log.debug(sys._getframe().f_code.co_name + "(self = {0},\n header_table = {1},\n ordered_set = {2})".format(self, header_table, ordered_set))
         
-        self.fp_tree = Node("NULL", 1)
+        fp_tree = Node("NULL", 1)
         for transaction_id, ordered_set in self._ordered_items.iteritems():
-            curr_node = self.fp_tree
+            curr_node = fp_tree
             if len(ordered_set) == 0:
                 continue
             last_node_exist = False
@@ -116,10 +204,9 @@ class FPGrowth:
                     last_node_exist = True
                 else:
                     node = Node(attr, 1)
-                    if len(curr_node.childrens) > 0:
+                    if len(curr_node.childrens) > 0  or last_node_exist:
                         curr_node.count  =  curr_node.count + 1
                     curr_node.childrens.append(node)
-                    
                     self.link_header_table(header_table, node)
                     curr_node = node
                     last_node_exist = False
@@ -127,9 +214,7 @@ class FPGrowth:
             if last_node_exist:
                 curr_node.count = curr_node.count +  1
 
-               
-        
-        return self.fp_tree
+        return header_table, fp_tree
                 
                     
     def find_child(self, curr_node, attr):
@@ -148,8 +233,8 @@ class FPGrowth:
         @param ordered_set: Ordered set        
         """
         
-        if DEBUG:
-            self.log.debug(sys._getframe().f_code.co_name + "(self = {0} , header_table = {1}, node = {2})".format(self, header_table, node))
+        #if DEBUG:
+        #    self.log.debug(sys._getframe().f_code.co_name + "(self = {0} , header_table = {1}, node = {2})".format(self, header_table, node))
         
         for row in header_table:
             if row[0] == node.val:

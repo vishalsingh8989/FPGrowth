@@ -1,1 +1,0 @@
-2018-04-12 14:34:14,360 - FPGrowth - DEBUG - __init__(self = <fpgrowth.FPGrowth instance at 0x10d88d050>  input_file = hungarian.data ,  min_sup = 5
